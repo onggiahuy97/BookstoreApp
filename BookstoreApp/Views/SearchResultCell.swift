@@ -13,17 +13,18 @@ import SDWebImage
 
 class SearchResultCell: UICollectionViewCell {
     
-    var bookResult: Result! {
+    var bookResult: Book! {
         didSet {
          
             nameLabel.text = bookResult.trackCensoredName
             categoryLabel.text = bookResult.genres.first!
-            ratingLabel.text = "\(bookResult.averageUserRating ?? 0)"
             priceLabel.text = "\(bookResult.price ?? 0)"
             getButton.setTitle("$\(bookResult.price ?? 0)", for: .normal)
             let url = URL(string: bookResult.artworkUrl100)
             iconImageView.sd_setImage(with: url)
             
+            ratingLabel.text = setupRatingStar(averageUserRating: bookResult.averageUserRating ?? 0)
+            ratingLabel.font = .systemFont(ofSize: 10)
         }
     }
     

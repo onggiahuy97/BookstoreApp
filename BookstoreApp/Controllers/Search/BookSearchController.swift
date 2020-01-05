@@ -14,8 +14,8 @@ class BookSearchController: UICollectionViewController, UICollectionViewDelegate
     
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
-    fileprivate var bookResults = [Result]()
-
+    fileprivate var bookResults = [Book]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,16 +38,30 @@ class BookSearchController: UICollectionViewController, UICollectionViewDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+//            Service.shared.fetchApps(searchTerm: searchText) { (res, err) in
+//                if let err = err {
+//                    print("Failed to search...", err)
+//                    return
+//                }
+//
+//                self.bookResults = res
+//                DispatchQueue.main.async {
+//                    self.collectionView.reloadData()
+//                }
+//            }
+//        })
+        
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            Service.shared.fetchApps(searchTerm: searchText) { (res, err) in
-                if let err = err {
+            NetworkManager.shared.fetchBooks(for: searchText) { result in
+                switch result {
+                case.failure(let err):
                     print("Failed to search...", err)
-                    return
-                }
-                
-                self.bookResults = res
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                case.success(let books):
+                    self.bookResults = books
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
                 }
             }
         })

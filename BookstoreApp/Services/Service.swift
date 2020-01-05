@@ -6,17 +6,20 @@
 //  Copyright © 2020 Huy Ong. All rights reserved.
 //
 
+//Using old school
+
 import Foundation
+import Alamofire
 
 class Service {
     
     static var shared = Service() //singleton
     
-    func fetchApps(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
+    func fetchApps(searchTerm: String, completion: @escaping ([Book], Error?) -> ()) {
         
         let string = searchTerm.replacingOccurrences(of: " ", with: "+")
         print(string)
-        let urlString = "https://itunes.apple.com/search?term=\(string)&entity=ebook"
+        let urlString = "https://itunes.apple.com/search?term=\(string)&entity=ebook&limit=25"
         
         guard let url = URL(string: urlString) else { return }
         //fetch data from internet
