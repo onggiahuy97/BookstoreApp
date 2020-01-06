@@ -3,15 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3E360F1523C1769200B6B662 /* BooksPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F1423C1769200B6B662 /* BooksPageController.swift */; };
-		3E360F1E23C268FF00B6B662 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3E360F1D23C268FF00B6B662 /* Alamofire */; };
 		3E360F2123C26A8D00B6B662 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2023C26A8D00B6B662 /* ErrorMessage.swift */; };
 		3E360F2323C26B1A00B6B662 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2223C26B1A00B6B662 /* NetworkManager.swift */; };
 		3E360F2523C276BE00B6B662 /* RatingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2423C276BE00B6B662 /* RatingStart.swift */; };
+		3E360F2723C2B8DD00B6B662 /* BooksGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2623C2B8DD00B6B662 /* BooksGroupCell.swift */; };
+		3E360F2923C2B9C100B6B662 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2823C2B9C100B6B662 /* BaseListController.swift */; };
+		3E360F2B23C2BA1F00B6B662 /* BooksHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2A23C2BA1F00B6B662 /* BooksHorizontalController.swift */; };
+		3E360F2D23C2BB3000B6B662 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2C23C2BB3000B6B662 /* Extensions.swift */; };
+		3E360F2F23C2C36C00B6B662 /* BookRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F2E23C2C36C00B6B662 /* BookRowCell.swift */; };
+		3E360F3123C38C0200B6B662 /* BooksHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F3023C38C0200B6B662 /* BooksHeaderCell.swift */; };
+		3E360F3323C38D3E00B6B662 /* BooksHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F3223C38D3E00B6B662 /* BooksHeaderHorizontalController.swift */; };
+		3E360F3523C38E5D00B6B662 /* BooksPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E360F3423C38E5D00B6B662 /* BooksPageHeader.swift */; };
 		3EBF36BA23BFF6DC007E887A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF36B923BFF6DC007E887A /* AppDelegate.swift */; };
 		3EBF36BC23BFF6DC007E887A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF36BB23BFF6DC007E887A /* SceneDelegate.swift */; };
 		3EBF36C023BFF6DE007E887A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF36BF23BFF6DE007E887A /* Assets.xcassets */; };
@@ -24,7 +31,6 @@
 		3EBF36DA23C01AB8007E887A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF36D823C01AB8007E887A /* VerticalStackView.swift */; };
 		3EBF36DD23C02023007E887A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF36DC23C02023007E887A /* Service.swift */; };
 		3EBF36E023C02041007E887A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF36DF23C02041007E887A /* SearchResult.swift */; };
-		3EBF36E323C02375007E887A /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = 3EBF36E223C02375007E887A /* LBTATools */; };
 		C0ABCAA6741B1D27D25C2572 /* Pods_BookstoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CA09938FE3BAAE5C3F28FA /* Pods_BookstoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +40,14 @@
 		3E360F2023C26A8D00B6B662 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		3E360F2223C26B1A00B6B662 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3E360F2423C276BE00B6B662 /* RatingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStart.swift; sourceTree = "<group>"; };
+		3E360F2623C2B8DD00B6B662 /* BooksGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksGroupCell.swift; sourceTree = "<group>"; };
+		3E360F2823C2B9C100B6B662 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		3E360F2A23C2BA1F00B6B662 /* BooksHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHorizontalController.swift; sourceTree = "<group>"; };
+		3E360F2C23C2BB3000B6B662 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3E360F2E23C2C36C00B6B662 /* BookRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRowCell.swift; sourceTree = "<group>"; };
+		3E360F3023C38C0200B6B662 /* BooksHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHeaderCell.swift; sourceTree = "<group>"; };
+		3E360F3223C38D3E00B6B662 /* BooksHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHeaderHorizontalController.swift; sourceTree = "<group>"; };
+		3E360F3423C38E5D00B6B662 /* BooksPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPageHeader.swift; sourceTree = "<group>"; };
 		3EBF36B623BFF6DC007E887A /* BookstoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookstoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBF36B923BFF6DC007E887A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EBF36BB23BFF6DC007E887A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,9 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E360F1E23C268FF00B6B662 /* Alamofire in Frameworks */,
 				C0ABCAA6741B1D27D25C2572 /* Pods_BookstoreApp.framework in Frameworks */,
-				3EBF36E323C02375007E887A /* LBTATools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				3E360F1423C1769200B6B662 /* BooksPageController.swift */,
+				3E360F2A23C2BA1F00B6B662 /* BooksHorizontalController.swift */,
+				3E360F3223C38D3E00B6B662 /* BooksHeaderHorizontalController.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -85,6 +99,10 @@
 		3E360F1B23C2659100B6B662 /* BookView */ = {
 			isa = PBXGroup;
 			children = (
+				3E360F2623C2B8DD00B6B662 /* BooksGroupCell.swift */,
+				3E360F2E23C2C36C00B6B662 /* BookRowCell.swift */,
+				3E360F3023C38C0200B6B662 /* BooksHeaderCell.swift */,
+				3E360F3423C38E5D00B6B662 /* BooksPageHeader.swift */,
 			);
 			path = BookView;
 			sourceTree = "<group>";
@@ -154,6 +172,7 @@
 		3EBF36D023BFFA63007E887A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E360F2823C2B9C100B6B662 /* BaseListController.swift */,
 				3EBF36CE23BFF72F007E887A /* BaseTabBarController.swift */,
 				3E360F1323C1767500B6B662 /* Books */,
 				3E360F1223C1766C00B6B662 /* Search */,
@@ -175,6 +194,7 @@
 			children = (
 				3EBF36D723C01AB8007E887A /* UIView+Layout.swift */,
 				3EBF36D823C01AB8007E887A /* VerticalStackView.swift */,
+				3E360F2C23C2BB3000B6B662 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,8 +252,6 @@
 			);
 			name = BookstoreApp;
 			packageProductDependencies = (
-				3EBF36E223C02375007E887A /* LBTATools */,
-				3E360F1D23C268FF00B6B662 /* Alamofire */,
 			);
 			productName = BookstoreApp;
 			productReference = 3EBF36B623BFF6DC007E887A /* BookstoreApp.app */;
@@ -264,8 +282,6 @@
 			);
 			mainGroup = 3EBF36AD23BFF6DC007E887A;
 			packageReferences = (
-				3EBF36E123C02375007E887A /* XCRemoteSwiftPackageReference "LBTATools" */,
-				3E360F1C23C268FE00B6B662 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3EBF36B723BFF6DC007E887A /* Products */;
 			projectDirPath = "";
@@ -337,16 +353,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E360F2323C26B1A00B6B662 /* NetworkManager.swift in Sources */,
+				3E360F3323C38D3E00B6B662 /* BooksHeaderHorizontalController.swift in Sources */,
 				3EBF36BA23BFF6DC007E887A /* AppDelegate.swift in Sources */,
 				3EBF36E023C02041007E887A /* SearchResult.swift in Sources */,
 				3E360F2523C276BE00B6B662 /* RatingStart.swift in Sources */,
+				3E360F2723C2B8DD00B6B662 /* BooksGroupCell.swift in Sources */,
 				3E360F2123C26A8D00B6B662 /* ErrorMessage.swift in Sources */,
+				3E360F2B23C2BA1F00B6B662 /* BooksHorizontalController.swift in Sources */,
 				3EBF36DD23C02023007E887A /* Service.swift in Sources */,
 				3EBF36BC23BFF6DC007E887A /* SceneDelegate.swift in Sources */,
+				3E360F3123C38C0200B6B662 /* BooksHeaderCell.swift in Sources */,
 				3EBF36D923C01AB8007E887A /* UIView+Layout.swift in Sources */,
 				3EBF36D223BFFA85007E887A /* BookSearchController.swift in Sources */,
+				3E360F2F23C2C36C00B6B662 /* BookRowCell.swift in Sources */,
+				3E360F2923C2B9C100B6B662 /* BaseListController.swift in Sources */,
 				3EBF36CF23BFF72F007E887A /* BaseTabBarController.swift in Sources */,
 				3E360F1523C1769200B6B662 /* BooksPageController.swift in Sources */,
+				3E360F3523C38E5D00B6B662 /* BooksPageHeader.swift in Sources */,
+				3E360F2D23C2BB3000B6B662 /* Extensions.swift in Sources */,
 				3EBF36D523BFFB3F007E887A /* SearchResultCell.swift in Sources */,
 				3EBF36DA23C01AB8007E887A /* VerticalStackView.swift in Sources */,
 			);
@@ -544,38 +568,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3E360F1C23C268FE00B6B662 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.9.1;
-			};
-		};
-		3EBF36E123C02375007E887A /* XCRemoteSwiftPackageReference "LBTATools" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.17;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3E360F1D23C268FF00B6B662 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3E360F1C23C268FE00B6B662 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		3EBF36E223C02375007E887A /* LBTATools */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3EBF36E123C02375007E887A /* XCRemoteSwiftPackageReference "LBTATools" */;
-			productName = LBTATools;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3EBF36AE23BFF6DC007E887A /* Project object */;
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftUI
-import LBTATools
 import SDWebImage
 
 class SearchResultCell: UICollectionViewCell {
@@ -78,13 +77,20 @@ class SearchResultCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        hstack(
-            iconImageView,
-            stack(nameLabel, categoryLabel, ratingLabel, spacing: 4),
-            getButton,
-            spacing: 12,
-            alignment: .center
-        ).withMargins(.allSides(16))
+        let stack = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingLabel])
+        addSubview(stack)
+        stack.spacing = 3
+        
+        let hstack = UIStackView(arrangedSubviews: [
+            iconImageView, stack, getButton
+        ])
+        
+        addSubview(hstack)
+        hstack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+        hstack.alignment = .center
+        hstack.spacing = 12
+        
+        
     }
     
     required init?(coder: NSCoder) {

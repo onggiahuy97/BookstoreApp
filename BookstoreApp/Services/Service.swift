@@ -9,7 +9,6 @@
 //Using old school
 
 import Foundation
-import Alamofire
 
 class Service {
     
