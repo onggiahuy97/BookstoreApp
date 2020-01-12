@@ -11,11 +11,15 @@ import UIKit
 class BooksPageHeader: UICollectionReusableView {
     
     let booksHeaderHorizontalController = BooksHeaderHorizontalController()
+    let booksHeaderVerticalController = BooksHeaderVerticalController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(booksHeaderHorizontalController.view)
         booksHeaderHorizontalController.view.fillSuperview()
+        
+        addSubview(booksHeaderVerticalController.view)
+        booksHeaderVerticalController.view.fillSuperview()
     }
     
     required init?(coder: NSCoder) {

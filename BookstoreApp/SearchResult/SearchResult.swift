@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct SearchResult: Codable {
+struct SearchResult: Codable, Hashable {
     let resultCount: Int
     let results: [Book]
 }
 
-struct Book: Codable {
+struct Book: Codable, Hashable {
     let trackCensoredName: String
     let artworkUrl100: String
     let artistName: String
