@@ -18,8 +18,17 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, FeedResult>!
     
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.color = .black
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureController()
         configureCollectionView()
         getBooks()
@@ -34,6 +43,8 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.fillSuperview()
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseId)
@@ -42,6 +53,10 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     func getBooks() {
         NetworkManager.shared.fetchTopFreeBook { [weak self] result in
             guard let self = self else { return }
+
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+            }
 
             switch result {
             case .failure(let err):
@@ -68,5 +83,10 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
+    }
+    
+    func addAIV() {
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.fillSuperview()
     }
 }
