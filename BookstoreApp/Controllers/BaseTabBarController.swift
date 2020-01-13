@@ -9,12 +9,12 @@
 import UIKit
 
 class BaseTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = [
-            createNavController(viewController: BooksVC(), title: "Books", imageName: "book"),
+            createNavController(viewController: BooksVC(), title: "Free Books", imageName: "book"),
             createNavController(viewController: BooksPageController(), title: "Books", imageName: "book"),
             createNavController(viewController: BookSearchController(), title: "Search", imageName: "magnifyingglass"),
         ]

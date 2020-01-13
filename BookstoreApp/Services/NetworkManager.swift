@@ -58,8 +58,8 @@ class NetworkManager {
         task.resume()
     }
     
-    func fetchTopFreeBook(completion: @escaping (Result<[FeedResult], BSError>) -> Void) {
-        let endpoint = topFreeBooksURL
+    func fetchTopFreeBook(loading: Int, completion: @escaping (Result<[FeedResult], BSError>) -> Void) {
+        let endpoint = "https://rss.itunes.apple.com/api/v1/us/books/top-free/all/\(loading)/explicit.json"
         
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidBook))

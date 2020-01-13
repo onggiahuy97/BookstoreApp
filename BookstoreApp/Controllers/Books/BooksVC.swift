@@ -15,23 +15,18 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     var books: [FeedResult] = []
     var bookGroup: [BookGroup] = []
     
+    var loading: Int = 10
+    var hasMoreBook = true
+    
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, FeedResult>!
-    
-    let activityIndicatorView: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(style: .large)
-        aiv.color = .black
-        aiv.startAnimating()
-        aiv.hidesWhenStopped = true
-        return aiv
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureController()
         configureCollectionView()
-        getBooks()
+        getBooks(loading: loading)
         configureDataSource()
     }
 
@@ -43,25 +38,23 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
-        view.addSubview(activityIndicatorView)
-        activityIndicatorView.fillSuperview()
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseId)
     }
     
-    func getBooks() {
-        NetworkManager.shared.fetchTopFreeBook { [weak self] result in
+    func getBooks(loading: Int) {
+        
+        showLoadingView()
+        
+        NetworkManager.shared.fetchTopFreeBook(loading: loading) { [weak self] result in
             guard let self = self else { return }
-
-            DispatchQueue.main.async {
-                self.activityIndicatorView.stopAnimating()
-            }
-
+            self.dismissLoadingView()
             switch result {
             case .failure(let err):
                 print("Failed...", err)
             case .success(let booksResult):
+                if self.books.count >= 100 { self.hasMoreBook = false }
                 self.books = booksResult
                 self.updataData()
             }
@@ -84,9 +77,18 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
-    
-    func addAIV() {
-        view.addSubview(activityIndicatorView)
-        activityIndicatorView.fillSuperview()
+}
+
+extension BooksVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+        guard hasMoreBook else { return }
+            loading += 15
+            getBooks(loading: loading)
+        }
     }
 }
