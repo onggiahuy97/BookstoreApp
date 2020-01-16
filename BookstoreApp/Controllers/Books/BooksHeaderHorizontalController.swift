@@ -8,9 +8,13 @@
 
 import UIKit
 
-class BooksHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
+class BooksHeaderHorizontalController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "id"
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +23,8 @@ class BooksHeaderHorizontalController: BaseListController, UICollectionViewDeleg
         
         collectionView.register(BooksHeaderCell.self, forCellWithReuseIdentifier: cellId)
         
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -33,7 +36,7 @@ class BooksHeaderHorizontalController: BaseListController, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 0, right: 0)
+        return .init(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
