@@ -19,16 +19,32 @@ class BookDetailView: UIViewController {
         return iv
     }()
     
+    let desciptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Description"
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    
+    
     var book: FeedResult! {
         didSet {
-            avatarImageView.sd_setImage(with: URL(string: book.artworkUrl100))
+            let bookDetailURl   = "https://itunes.apple.com/lookup?id=\(book.id)"
+            Service.shared.fetchGenericJSONData(urlString: bookDetailURl) { (result: SearchResult?, err) in
+                let bookDetail = result?.results.first
+                self.bookDetail = bookDetail
+            }
         }
     }
+    
+    var bookDetail: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupDoneButton()
+        configureData()
         configureView()
     }
     
@@ -41,10 +57,16 @@ class BookDetailView: UIViewController {
         dismiss(animated: true)
     }
     
+    func configureData() {
+        avatarImageView.sd_setImage(with: URL(string: bookDetail?.artworkUrl100 ?? ""))
+        desciptionLabel.text = bookDetail?.description ?? ""
+    }
+    
     func configureView() {
-        view.addSubview(avatarImageView)
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
-        ])
+        let stack = UIStackView(arrangedSubviews: [avatarImageView, desciptionLabel])
+        stack.axis = .vertical
+        view.addSubview(stack)
+        stack.fillSuperview()
+        print(desciptionLabel.text ?? "")
     }
 }

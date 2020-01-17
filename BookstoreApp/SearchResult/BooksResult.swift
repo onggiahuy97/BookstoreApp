@@ -18,5 +18,5 @@ struct Feed: Decodable, Hashable {
 }
 
 struct FeedResult: Codable, Hashable {
-    var name, artistName, artworkUrl100: String
+    var id, name, artistName, artworkUrl100: String
 }

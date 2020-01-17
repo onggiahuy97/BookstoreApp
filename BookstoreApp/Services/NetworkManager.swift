@@ -15,6 +15,7 @@ class NetworkManager {
     static let shared   = NetworkManager()
     let baseURL         = "https://itunes.apple.com/search?term="
     let topFreeBooksURL = "https://rss.itunes.apple.com/api/v1/us/books/top-free/all/50/explicit.json"
+    let bookDetailURl   = "https://itunes.apple.com/lookup?id="
     
     private init() {
         

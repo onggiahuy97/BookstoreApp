@@ -20,4 +20,5 @@ struct Book: Codable, Hashable {
     var averageUserRating: Float?
     let genres: [String]
     var price: Float?
+    let description: String
 }
