@@ -12,7 +12,7 @@ class BookCell: UICollectionViewCell {
     
     static let reuseId = "BookCell"
     
-    let avaterImageView: UIImageView = {
+    let avatarImageView: UIImageView = {
        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.layer.cornerRadius   = 12
@@ -36,22 +36,22 @@ class BookCell: UICollectionViewCell {
     func set(book: FeedResult) {
         usernameLabel.text = book.artistName
         let url = URL(string: book.artworkUrl100)
-        avaterImageView.sd_setImage(with: url)
+        avatarImageView.sd_setImage(with: url)
     }
     
     private func configure() {
-        addSubview(avaterImageView)
+        addSubview(avatarImageView)
         addSubview(usernameLabel)
         contentView.backgroundColor = .systemBackground
         let padding: CGFloat = 8
         
         NSLayoutConstraint.activate([
-            avaterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            avaterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            avaterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            avaterImageView.heightAnchor.constraint(equalTo: avaterImageView.widthAnchor, constant: 40),
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor, constant: 40),
             
-            usernameLabel.topAnchor.constraint(equalTo: avaterImageView.bottomAnchor, constant: 12),
+            usernameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
             usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 20)

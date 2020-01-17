@@ -13,13 +13,19 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     enum Section { case main }
     
     var books: [FeedResult] = []
-    var bookGroup: [BookGroup] = []
     
     var loading: Int = 10
     var hasMoreBook = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, FeedResult>!
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = BookDetailView()
+        vc.book = books[indexPath.item]
+        let navController = UINavigationController(rootViewController: vc)
+        present(navController, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +71,7 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, book) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.reuseId, for: indexPath) as! BookCell
             cell.set(book: book)
+            
             return cell
         })
     }
