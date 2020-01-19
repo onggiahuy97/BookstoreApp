@@ -89,9 +89,12 @@ class BookDetailView: UIViewController {
         nameLabel.text = bookDetail?.artistName
         categoryLabel.text = bookDetail?.genres.first!
         priceLabel.text = "\(bookDetail?.price ?? 0)"
-        getButton.setTitle("$\(bookDetail?.price ?? 0)", for: .normal)
+        
+        getButton.setTitle(bookDetail?.price == 0 ? "Free" : "$\(bookDetail?.price ?? 0)", for: .normal)
+        
         let url = URL(string: bookDetail?.artworkUrl100 ?? "")
         iconImageView.sd_setImage(with: url)
+        
         ratingLabel.text = setupRatingStar(averageUserRating: bookDetail?.averageUserRating ?? 0)
         ratingLabel.font = .systemFont(ofSize: 10)
     }
@@ -111,6 +114,6 @@ class BookDetailView: UIViewController {
         hstack.alignment = .center
         hstack.spacing = 12
         
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
     }
 }

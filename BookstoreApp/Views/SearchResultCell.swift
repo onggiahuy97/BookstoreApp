@@ -18,7 +18,7 @@ class SearchResultCell: UICollectionViewCell {
             nameLabel.text = bookResult.trackCensoredName
             categoryLabel.text = bookResult.genres.first!
             priceLabel.text = "\(bookResult.price ?? 0)"
-            getButton.setTitle("$\(bookResult.price ?? 0)", for: .normal)
+            getButton.setTitle(bookResult?.price == 0 ? "Free" : "$\(bookResult?.price ?? 0)", for: .normal)
             let url = URL(string: bookResult.artworkUrl100)
             iconImageView.sd_setImage(with: url)
             
