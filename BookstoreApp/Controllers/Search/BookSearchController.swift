@@ -81,6 +81,13 @@ class BookSearchController: UICollectionViewController, UICollectionViewDelegate
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = BookDetailView()
+        vc.bookDetail = bookResults[indexPath.item]
+        let navController = UINavigationController(rootViewController: vc)
+        present(navController, animated: true)
+    }
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
