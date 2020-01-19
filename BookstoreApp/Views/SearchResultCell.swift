@@ -14,7 +14,6 @@ class SearchResultCell: UICollectionViewCell {
     
     var bookResult: Book! {
         didSet {
-         
             nameLabel.text = bookResult.trackCensoredName
             categoryLabel.text = bookResult.genres.first!
             priceLabel.text = "\(bookResult.price ?? 0)"
@@ -24,6 +23,7 @@ class SearchResultCell: UICollectionViewCell {
             
             ratingLabel.text = setupRatingStar(averageUserRating: bookResult.averageUserRating ?? 0)
             ratingLabel.font = .systemFont(ofSize: 10)
+    
         }
     }
     
@@ -73,7 +73,6 @@ class SearchResultCell: UICollectionViewCell {
         return button
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -89,7 +88,6 @@ class SearchResultCell: UICollectionViewCell {
         hstack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
         hstack.alignment = .center
         hstack.spacing = 12
-        
         
     }
     

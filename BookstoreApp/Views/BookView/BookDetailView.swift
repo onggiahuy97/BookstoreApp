@@ -55,11 +55,19 @@ class BookDetailView: UIViewController {
         button.layer.cornerRadius = 16
         return button
     }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 16)
+        return label
+    }()
 
     var book: FeedResult! {
         didSet {
             let bookDetailURl   = "https://itunes.apple.com/lookup?id=\(book.id)"
-            Service.shared.fetchGenericJSONData(urlString: bookDetailURl) { (result: SearchResult?, err) in
+            Service.shared.fetchGenericJSONData(urlString: bookDetailURl) { [weak self] (result: SearchResult?, err) in
+                guard let self = self else { return }
                 let bookDetail = result?.results.first
                 self.bookDetail = bookDetail
             }
@@ -72,8 +80,8 @@ class BookDetailView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupDoneButton()
-        configureData()
         configureView()
+        configureData()
     }
     
     func setupDoneButton() {
@@ -97,6 +105,8 @@ class BookDetailView: UIViewController {
         
         ratingLabel.text = setupRatingStar(averageUserRating: bookDetail?.averageUserRating ?? 0)
         ratingLabel.font = .systemFont(ofSize: 10)
+        
+        descriptionLabel.text = bookDetail?.description ?? ""
     }
     
     func configureView() {
@@ -109,10 +119,24 @@ class BookDetailView: UIViewController {
             iconImageView, stack, getButton
         ])
         
-        view.addSubview(hstack)
-        hstack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+        
+        let vstack = VerticalStackView(arrangedSubviews: [
+            hstack,
+            descriptionLabel,
+            UIView()
+        ])
+        
+//        view.addSubview(hstack)
+//        hstack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+//        hstack.alignment = .center
+//        hstack.spacing = 12
+        
         hstack.alignment = .center
         hstack.spacing = 12
+        
+        view.addSubview(vstack)
+        vstack.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        vstack.spacing = 12
         
         view.backgroundColor = .systemBackground
     }
