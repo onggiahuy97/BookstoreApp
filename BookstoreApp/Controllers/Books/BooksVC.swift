@@ -14,7 +14,7 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
     
     var books: [FeedResult] = []
     
-    var loading: Int = 10
+    var loading: Int = 15
     var hasMoreBook = true
     
     var collectionView: UICollectionView!
@@ -71,7 +71,6 @@ class BooksVC: UIViewController, UICollectionViewDelegateFlowLayout {
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, book) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.reuseId, for: indexPath) as! BookCell
             cell.set(book: book)
-            
             return cell
         })
     }
